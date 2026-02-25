@@ -9,7 +9,7 @@ select * from sports_2;
 # Write an sql query to show all the UNIQUE team names
 select distinct team from sports_1;
 
-# Write an SQL query to show name of team which has rank 1 from group 7 --------------------
+# Write an SQL query to show name of team which has rank 1 from group 7
 select team from sports_1 where 'rank' = 1 and 'group' = 7;
 
 # Write an sql query to show count of all teams 
@@ -18,16 +18,16 @@ select count(team) from sports_1;
 #	Write an SQL query to show matches_played by each team
 select team, matches_played from sports_1;
 
-#	Write an SQL query to show team, percent of wins with respect to matches_played by each team and name the resulting column as wins_percent...............
+#	Write an SQL query to show team, percent of wins with respect to matches_played by each team and name the resulting column as wins_percent
 select team, 100*(wins/matches_played) from sports_1;
 
-#	Write an SQL query to show which team has maximum goals_scored and their count-------------
+#	Write an SQL query to show which team has maximum goals_scored and their count
 select count(team), max(goals_scored) from sports_1;
 
-#	Write an SQL query to show percent of draws with respect to matches_played round of to 2 digits by each team.........
+#	Write an SQL query to show percent of draws with respect to matches_played round of to 2 digits by each team
 select team, round(100*(draws/matches_played),2) from sports_1;
 
-#	Write an SQL query to show which team has minimum goals_scored and their count......
+#	Write an SQL query to show which team has minimum goals_scored and their count
 select team, goals_scored from sports_1 where goals_scored = (select min(goals_scored) from sports_1);
 
 # Write an SQL query to show the average goal_difference 
@@ -45,13 +45,13 @@ select * from sports_1 where exp_goal_difference between -0.5 and 0.5;
 # Write an SQL query to show all data in ascending order by exp_goal_difference_per_90
 select * from sports_1 order by exp_goal_difference_per_90 asc;
 
-# Write an SQL query to show team which has maximum number of players_used ..........
+# Write an SQL query to show team which has maximum number of players_used
 select team, max(players_used) from sports_2;
 
 # Write an SQL query to show each team name and avg_age in ascending order by avg_age
 select team, avg_age from sports_2 order by avg_age asc;
 
-# Write an sql query to show average possession of teams ......
+# Write an sql query to show average possession of teams
 select avg(possession) from sports_2;
 
 # Write a SQL query to show team which has played atleast 5 games
@@ -87,7 +87,7 @@ select team, goals_per_shot, goals_per_shot_on_target, average_shot_distance fro
 # Write an SQL query to show team, errors, touches for which errors is 0 and touches is less than 1500 
 select team, errors, touches from sports_2 where errors = 0 and touches < 1500; 
 
-# Write an SQL query to show team, fouls which has maximum number of fouls......
+# Write an SQL query to show team, fouls which has maximum number of fouls
 select team, max(fouls) from sports_2;
 
 # Write an SQL query to show team, offisdes which has offsides less than 10 or greater than 20
@@ -96,7 +96,7 @@ select team, offsides from sports_2 where offsides < 10 or offsides > 20;
 # Write an SQL query to show team, aerials_won, aerials_lost, aerials_won_pct in descending order by aerials_won_pct 
 select team, aerials_won, aerials_lost, aerials_won_pct from sports_2 order by aerials_won_pct desc;
 
-# Write an SQL query to show number of teams each group has!.....
+# Write an SQL query to show number of teams each group has!
 select `group`,count(team) from sports_1 group by `group`;
 
 # Write a SQL query to show team names group 6 has
@@ -143,3 +143,4 @@ select `group`, avg(passes_pct) from sports_2 inner join sports_1 on sports_2.te
 
 # Write an SQL query to show average goals_per90 for each group and arrange it in ascending order by goals_per90.
 select `group`, avg(goals_per90) from sports_2 inner join sports_1 on sports_2.team = sports_1.team group by `group` order by avg(goals_per90);
+
